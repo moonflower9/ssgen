@@ -2,17 +2,19 @@ from enum import Enum
 from typing import override
 
 
-class Bender(Enum):
-    AIR_BENDER = "air"
-    WATER_BENDER = "water"
-    EARTH_BENDER = "earth"
-    FIRE_BENDER = "fire"
+class TextType(Enum):
+    PLAIN = "plain"
+    BOLD = "bold"
+    ITALIC = "italic"
+    CODE = "code"
+    LINK = "link"
+    IMAGE = "image"
 
 
 class TextNode:
-    def __init__(self, text: str, text_type: str, url: str | None = None):
+    def __init__(self, text: str, text_type: TextType, url: str | None = None):
         self.text: str = text
-        self.text_type: str = text_type
+        self.text_type: TextType = text_type
         self.url: str | None = url
 
     @override
